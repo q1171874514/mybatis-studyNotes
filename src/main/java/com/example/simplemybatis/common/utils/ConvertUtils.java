@@ -43,7 +43,8 @@ public class ConvertUtils {
         if(sourceList == null){
             return null;
         }
-        List targetList = new ArrayList(sourceList.size());
+
+        List targetList = new ArrayList<>(sourceList.size());
         try {
             for(Object source : sourceList){
                 T targetObject = target.newInstance();

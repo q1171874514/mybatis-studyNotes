@@ -2,6 +2,8 @@ package com.example.simplemybatis.modules.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class UserEntity {
     //id
@@ -10,5 +12,6 @@ public class UserEntity {
     private String name;
     //年龄
     private Integer age;
-
+    //创建时间
+    private Date creationTime;
 }

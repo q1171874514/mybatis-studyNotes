@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -19,10 +20,29 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public List<UserDto> list() {
-        List<UserEntity> userEntityList = userDao.list();
+    public List<UserDto> list(Map<String, Object> params) {
+        List<UserEntity> userEntityList = userDao.list(params);
         List<UserDto> userDtoList = ConvertUtils.sourceToTarget(userEntityList, UserDto.class);
         return userDtoList;
     }
+
+    @Override
+    public Boolean save(UserDto userDto) {
+        UserEntity userEntity = ConvertUtils.sourceToTarget(userDto, UserEntity.class);
+        return userDao.insert(userEntity);
+    }
+
+    @Override
+    public Boolean update(UserDto userDto) {
+        UserEntity userEntity = ConvertUtils.sourceToTarget(userDto, UserEntity.class);
+        return userDao.update(userEntity);
+    }
+
+    @Override
+    public Boolean delete(Long[] ids) {
+        return userDao.delete(ids);
+    }
+
+
 }
 
