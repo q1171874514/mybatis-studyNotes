@@ -16,3 +16,4 @@ SpringBoot+mybitis学习笔记
         typeAliasesPackage: com.example.simplemybatis.modules.entity
         mapperLocations: classpath:mapper/**/*.xml
         configLocation: classpath:/mybatis-config.xml
+#### 2.2. 完成entity、dao、dto、service、controller、xml代码
