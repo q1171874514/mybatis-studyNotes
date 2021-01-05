@@ -11,7 +11,8 @@ SpringBoot+mybitis学习笔记
         driver-class-name: com.mysql.jdbc.Driver
 ## 2.完成基本的CRUD
 #### 2.1. application.yml配置entity、xml、mybatis-config.xml地址
-  mybatis:
-    typeAliasesPackage: com.example.simplemybatis.modules.entity
-    mapperLocations: classpath:mapper/**/*.xml
-    configLocation: classpath:/mybatis-config.xml
+      #mybatis配置
+      mybatis:
+        typeAliasesPackage: com.example.simplemybatis.modules.entity
+        mapperLocations: classpath:mapper/**/*.xml
+        configLocation: classpath:/mybatis-config.xml
