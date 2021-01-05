@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.simplemybatis.modules.dao.UserDao">
+    <!--    <resultMap type="com.example.simplemybatis.modules.entity.UserEntity" id="userEntityMap">-->
+    <!--        <result property="id" column="id"/>-->
+    <!--        <result property="name" column="name"/>-->
+    <!--        <result property="age" column="age"/>-->
+    <!--    </resultMap>-->
+
+    <!--<select id = "queryAllUsers" resultMap="UserInfoMap">-->
+    <select id="list" resultType="com.example.simplemybatis.modules.entity.UserEntity">
+        select * from user where true
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        <if test="name != null">
+            and name = #{name}
+        </if>
+        <if test="age != null">
+            and age = #{age}
+        </if>
+    </select>
+
+    <insert id="insert">
+        insert into user (id, name, age) value (#{id}, #{name}, #{age})
+    </insert>
+
+    <update id="update">
+        update user
+        set id = id
+        <if test="name != null">
+            , name = #{name}
+        </if>
+        <if test="age != null">
+            , age = #{age}
+        </if>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from user where id in
+        <foreach item="ids" collection="array" open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
+
+</mapper>
