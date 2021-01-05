@@ -28,12 +28,12 @@
 
     <update id="update">
         update user
-        set
+        set id = id
         <if test="name != null">
-            name = #{name}
+            , name = #{name}
         </if>
         <if test="age != null">
-            age = #{age}
+            , age = #{age}
         </if>
         where id = #{id}
     </update>
